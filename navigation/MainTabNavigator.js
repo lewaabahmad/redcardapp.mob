@@ -22,7 +22,7 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: <Text style={{ color: Colors.primary }}>Play</Text>,
+  tabBarLabel: ({ focused }) => <Text style={{ color: (focused ? Colors.primary : Colors.tabIconDefault), fontSize: 12 }}>Card</Text>,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -45,7 +45,7 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: <Text style={{ color: Colors.primary }}>Share</Text>,
+  tabBarLabel: ({ focused }) => <Text style={{ color: (focused ? Colors.primary : Colors.tabIconDefault), fontSize: 12 }}>Share</Text>,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-share' : 'md-share'} />
   ),
@@ -61,7 +61,7 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: <Text style={{ color: Colors.primary }}>About</Text>,
+  tabBarLabel: ({ focused }) => <Text style={{ color: (focused ? Colors.primary : Colors.tabIconDefault), fontSize: 12 }}>About</Text>,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused}
       name={

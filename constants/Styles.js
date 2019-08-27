@@ -10,5 +10,15 @@ export const BasicTextStyles = StyleSheet.create({
     lineHeight: 20,
     textAlign: 'center',
     paddingBottom: 15,
+  },
+  redLink: {
+    color: Colors.primary,
+    padding: 2,
+    fontSize: 16,
+    fontWeight: '700',
+    lineHeight: 22,
+    textAlign: 'center',
+    paddingBottom: 15,
+    textDecorationLine: 'underline',
   }
 });

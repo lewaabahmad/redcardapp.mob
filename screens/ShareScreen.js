@@ -14,14 +14,14 @@ export default function ShareScreen() {
       </Text>
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={function () { sendSMS('Hello!') }}
+          onPress={function () { sendSMS('Download the Digital Red Card app from here: https://redcardapp.herokuapp.com') }}
           style={shareButtonStyles.container}>
           <Text style={shareButtonStyles.text}>
             Send this app via SMS >
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={function () { sendSMS('yes!') }}
+          onPress={function () { sendSMS("View a digital version of the Immigrant Legal Resource Center's Red Card here: https://redcardapp.herokuapp.com/card") }}
           style={shareButtonStyles.container}>
           <Text style={shareButtonStyles.text}>
             Send the Red Card via SMS >
