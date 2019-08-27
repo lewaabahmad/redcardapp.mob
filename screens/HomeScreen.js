@@ -9,63 +9,59 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Colors from '../constants/Colors'
 
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}>
+      <View style={styles.welcomeContainer}>
+        <Text style={shareButtonStyles.header}>FRONT</Text>
+        <View style={shareButtonStyles.container}>
+          <Text style={shareButtonStyles.text}>
+            You have constitutional rights:
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            • DO NOT OPEN THE DOOR if an immigration agent is knocking on the door.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            • DO NOT ANSWER ANY QUESTIONS from an immigration agent if they try to talk to you. You have the right to remain silent.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            • DO NOT SIGN ANYTHING without first speaking to a lawyer. You have the right to speak with a lawyer.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            • If you are outside of your home, ask the agent if you are free to leave and if they say yes, leave calmly.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            • DO NOT GIVE YOUR PHONE TO THE AGENT. If you are inside of your home or car, show your phone through the window. You may give a physical copy of this card to the agent.
           </Text>
         </View>
-
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
+      </View>
+      <View style={styles.welcomeContainer}>
+        <Text style={shareButtonStyles.header}>BACK</Text>
+        <View style={shareButtonStyles.container}>
+          <Text style={shareButtonStyles.text}>
+            I do not wish to speak with you, answer your questions, or sign or hand you any documents based on my 5th Amendment rights under the United States Constitution.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            I do not give you permission to enter my home based on my 4th Amendment rights under the United States Constitution unless you have a warrant to enter, signed by a judge or magistrate with my name on it that you slide under the door.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            I do not give you permission to search any of my belongings based on my 4th Amendment rights.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            I choose to exercise my constitutional rights.
+          </Text>
+          <Text style={shareButtonStyles.text}>
+            These cards are available to citizens and noncitizens alike
+          </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -73,40 +69,26 @@ HomeScreen.navigationOptions = {
   header: null,
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
+const shareButtonStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    margin: 5,
+    padding: 25,
+    backgroundColor: Colors.primary,
+    borderRadius: 10,
+  },
+  text: {
+    color: 'white',
+    padding: 2,
+    fontSize: 22,
+  },
+  header: {
+    color: Colors.primary,
+    fontWeight: '700',
+    padding: 2,
+    fontSize: 14,
   }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
+});
 
 const styles = StyleSheet.create({
   container: {

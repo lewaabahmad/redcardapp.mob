@@ -3,12 +3,15 @@ import React from 'react';
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import * as SMS from 'expo-sms';
 
+import { BasicTextStyles } from '../constants/Styles'
 import Colors from '../constants/Colors'
 
 export default function ShareScreen() {
   return (
-    <ScrollView>
-      <Text>Send this resource to those in need via SMS:</Text>
+    <ScrollView style={{ paddingTop: 30 }}>
+      <Text style={BasicTextStyles.red}>
+        Send this resource to those in need via SMS:
+      </Text>
       <View style={styles.container}>
         <TouchableOpacity
           onPress={function () { sendSMS('Hello!') }}

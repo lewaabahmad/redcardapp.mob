@@ -1,11 +1,13 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ShareScreen from '../screens/ShareScreen';
 import AboutScreen from '../screens/AboutScreen';
+
+import Colors from '../constants/Colors'
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -20,14 +22,14 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Play',
+  tabBarLabel: <Text style={{ color: Colors.primary }}>Play</Text>,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? 'ios-mic'
-          : 'md-mic'
+          ? 'ios-clipboard'
+          : 'md-clipboard'
       }
     />
   ),
@@ -43,7 +45,7 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Share',
+  tabBarLabel: <Text style={{ color: Colors.primary }}>Share</Text>,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-share' : 'md-share'} />
   ),
@@ -59,7 +61,7 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'About',
+  tabBarLabel: <Text style={{ color: Colors.primary }}>About</Text>,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused}
       name={
